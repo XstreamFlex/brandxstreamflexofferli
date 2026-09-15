@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Packages — Xstream Flex</title>
+  <meta name="description" content="Simple pricing for high-converting local business websites. See your free live preview before you pay. Hosting, care, and optional chat helper.">
+  <link rel="icon" type="image/x-icon" href="https://xmg.xstreamflex.com/i/ecOGtT">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae2fd',
+              300: '#7cc8fc',
+              400: '#38acf8',
+              500: '#0e91eb',
+              600: '#0273ca',
+              700: '#035ca3',
+              800: '#074e87',
+              900: '#0c4270',
+              950: '#082a4a',
+            },
+            neutral: {
+              850: '#1f293d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom fine-tuning of transitions */
+    .theme-transition {
+      transition: background-color 0.3s ease, border-color 0.3s ease, text-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col theme-transition">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/90 transition-colors duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+      <!-- Logo / Identity -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Logo" class="h-8 w-8 rounded-lg object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500 transition-all duration-300" />
+        <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Xstream <span class="text-brand-600 dark:text-brand-400">Flex</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="index.html" class="text-brand-600 dark:text-brand-400 font-semibold transition-colors">Home</a>
+        <a href="examples.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Examples</a>
+        <a href="pricing.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Packages</a>
+        <a href="how-it-works.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">How It Works</a>
+        <a href="blog.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Blog</a>
+        <a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA & Controls -->
+      <div class="hidden md:flex items-center gap-4">
+        <!-- Light/Dark Toggle -->
+        <button id="theme-toggle-btn" aria-label="Toggle Theme" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <!-- Sun Icon -->
+          <svg id="sun-icon" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg id="moon-icon" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a href="index.html#request-form" class="inline-flex justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 transition-all">
+          Request a preview
+        </a>
+      </div>
+
+      <!-- Mobile Nav & Theme Button Wrapper -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Mobile Theme Toggle -->
+        <button id="theme-toggle-btn-mobile" aria-label="Toggle Theme Mobile" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <svg class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 transition-all duration-300">
+      <a href="index.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-brand-600 dark:text-brand-400 bg-slate-50 dark:bg-slate-900">Home</a>
+      <a href="examples.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Examples</a>
+      <a href="pricing.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Packages</a>
+      <a href="how-it-works.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">How It Works</a>
+      <a href="blog.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Blog</a>
+      <a href="contact.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Contact</a>
+      <hr class="border-slate-150 dark:border-slate-800 my-2">
+      <a href="index.html#request-form" class="block w-full text-center rounded-lg bg-brand-600 px-4 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-brand-500">
+        Request a preview
+      </a>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- MAIN HERO SECTION -->
+  <main class="flex-grow">
+    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 dark:bg-brand-950 px-3 py-1 text-xs font-medium text-brand-700 dark:text-brand-300 ring-1 ring-inset ring-brand-600/10 dark:ring-brand-400/20 mb-4">
+          Founding member rates available now
+        </span>
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          Straightforward pricing.<br>
+          <span class="text-brand-600 dark:text-brand-400">See your site preview first.</span>
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-350">
+          No large agency markup. No setup fee charged until you approve a live, clickable preview of your new multipage site built from your public info.
+        </p>
+
+        <!-- Dynamic Billing Toggle Switch -->
+        <div class="mt-10 flex items-center justify-center gap-4">
+          <span class="text-sm font-semibold text-slate-600 dark:text-slate-400" id="billing-monthly-text">Monthly care</span>
+          <button id="billing-toggle" type="button" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-slate-200 dark:bg-slate-800 transition-colors duration-200 ease-in-out focus:outline-none ring-2 ring-brand-500/20" role="switch" aria-checked="false">
+            <span class="sr-only">Use yearly billing for care plan</span>
+            <span id="billing-toggle-handle" aria-hidden="true" class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+          </button>
+          <span class="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-1.5" id="billing-yearly-text">
+            Yearly care
+            <span class="rounded-full bg-green-100 dark:bg-green-950 px-2 py-0.5 text-xs font-semibold text-green-800 dark:text-green-300">Save 20%</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE-TIER PRICING CARDS -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-950 transition-colors">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 items-stretch">
+          
+          <!-- Package 1: Site -->
+          <div class="relative flex flex-col justify-between rounded-3xl bg-white dark:bg-slate-900 p-8 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 transition-all duration-300 hover:shadow-md">
+            <div>
+              <div class="flex items-center justify-between gap-x-4">
+                <h3 class="text-lg font-bold leading-8 text-slate-900 dark:text-white">Site Only</h3>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                Perfect for services that need clear multipage presentation, click-to-call, and custom inquiry forms.
+              </p>
+              
+              <!-- Pricing info -->
+              <div class="mt-6 flex flex-col gap-1 border-t border-slate-100 dark:border-slate-800 pt-6">
+                <div class="flex items-baseline gap-x-1">
+                  <span class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">$897</span>
+                  <span class="text-sm font-semibold text-slate-500">founding setup</span>
+                </div>
+                <div class="flex items-baseline gap-x-1 text-slate-500 dark:text-slate-400">
+                  <span class="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-300" id="p1-care-price">$50</span>
+                  <span class="text-xs font-semibold" id="p1-care-period">/mo hosting & care</span>
+                </div>
+              </div>
+
+              <!-- Key features checklist -->
+              <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Multipage brochure site
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Mobile-friendly design
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Click-to-call & contact form
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Domain setup assistance
+                </li>
+                <li class="flex gap-x-3 text-slate-400 dark:text-slate-500">
+                  <svg class="h-6 w-5 flex-none text-slate-300 dark:text-slate-700" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h12.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                  </svg>
+                  No AI site-chat assistant
+                </li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="#request-form" onclick="selectPackage('Site')" class="block w-full rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-3 text-center text-sm font-semibold hover:bg-brand-600 hover:text-white dark:hover:bg-brand-500 dark:hover:text-white transition-all">
+                Request this package
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 2: Site + Chat (POPULAR) -->
+          <div class="relative flex flex-col justify-between rounded-3xl bg-white dark:bg-slate-900 p-8 shadow-lg ring-2 ring-brand-500 dark:ring-brand-400 transition-all duration-300 scale-100 lg:scale-[1.03] z-10">
+            <span class="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-brand-600 px-4 py-1 text-xs font-semibold text-white tracking-wide uppercase">
+              Most Popular
+            </span>
+            <div>
+              <div class="flex items-center justify-between gap-x-4">
+                <h3 class="text-xl font-bold leading-8 text-slate-900 dark:text-white">Site + Chat</h3>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                Our recommended path. Adds a responsive site chat widget custom-trained on your exact local business profile to capture leads 24/7.
+              </p>
+              
+              <!-- Pricing info -->
+              <div class="mt-6 flex flex-col gap-1 border-t border-slate-100 dark:border-slate-800 pt-6">
+                <div class="flex items-baseline gap-x-1">
+                  <span class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">$1,097</span>
+                  <span class="text-sm font-semibold text-slate-500">founding setup</span>
+                </div>
+                <div class="flex items-baseline gap-x-1 text-slate-500 dark:text-slate-400">
+                  <span class="text-xl font-bold tracking-tight text-brand-600 dark:text-brand-400" id="p2-care-price">$75</span>
+                  <span class="text-xs font-semibold" id="p2-care-period">/mo hosting & care</span>
+                </div>
+              </div>
+
+              <!-- Key features checklist -->
+              <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Multipage brochure site
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Mobile-friendly design
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Click-to-call & contact form
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Domain setup assistance
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <strong>Custom AI site-chat assistant</strong>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="#request-form" onclick="selectPackage('Site + Chat')" class="block w-full rounded-xl bg-brand-600 text-white px-3 py-3 text-center text-sm font-semibold hover:bg-brand-500 transition-all shadow-sm">
+                Request this package
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 3: Site + Chat + Content -->
+          <div class="relative flex flex-col justify-between rounded-3xl bg-white dark:bg-slate-900 p-8 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 transition-all duration-300 hover:shadow-md">
+            <div>
+              <div class="flex items-center justify-between gap-x-4">
+                <h3 class="text-lg font-bold leading-8 text-slate-900 dark:text-white">Site + Chat + Content</h3>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                For active local brands. Includes a fully styled content blog section and 4 targeted monthly articles to drive local organic SEO.
+              </p>
+              
+              <!-- Pricing info -->
+              <div class="mt-6 flex flex-col gap-1 border-t border-slate-100 dark:border-slate-800 pt-6">
+                <div class="flex items-baseline gap-x-1">
+                  <span class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">$1,297</span>
+                  <span class="text-sm font-semibold text-slate-500">founding setup</span>
+                </div>
+                <div class="flex items-baseline gap-x-1 text-slate-500 dark:text-slate-400">
+                  <span class="text-xl font-bold tracking-tight text-slate-700 dark:text-slate-300" id="p3-care-price">$149</span>
+                  <span class="text-xs font-semibold" id="p3-care-period">/mo hosting & care</span>
+                </div>
+              </div>
+
+              <!-- Key features checklist -->
+              <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Multipage brochure site
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Mobile-friendly design
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Click-to-call & contact form
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  Custom AI site-chat assistant
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-brand-600 dark:text-brand-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <strong>Blog + 4 optimized articles / mo</strong>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="#request-form" onclick="selectPackage('Site + Chat + Content')" class="block w-full rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-3 text-center text-sm font-semibold hover:bg-brand-600 hover:text-white dark:hover:bg-brand-500 dark:hover:text-white transition-all">
+                Request this package
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-xs text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+            *Standard rate is $1,200–$1,500 setup after early founding slots fill up. Lock in founding pricing above permanently on your account today.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED DETAIL GRID -->
+    <section class="py-16 bg-white dark:bg-slate-900 border-t border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Every single plan includes</h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-2">Professional, straightforward support to ensure your business is accurately represented online.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="p-1 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              </span>
+              Mobile-first layout
+            </h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Over 65% of local traffic is on phones. We test and design specifically to make call-ins fast on tiny screens.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="p-1 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+              </span>
+              3 rounds of edits
+            </h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Adjust details, pictures, or formatting during your first 14 days live. Edits are handled next business day.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="p-1 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5l1.5-1.5m3.036-3.036l1.5-1.5a4 4 0 10-5.656-5l-4 4a4 4 0 003.342 6.18"/></svg>
+              </span>
+              Domain connection help
+            </h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">We manage pointing your existing name to our fast servers, or help you register a simple, strong one.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="p-1 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </span>
+              SSL and Security Care
+            </h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Your monthly care covers reliable hosting, SSL certificate, daily automated backups, and defense guards.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="p-1 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              30-Min Swaps / Month
+            </h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Included monthly: small text tweaks, updating seasonal pictures, or setting vacation hours. Just drop a quick email.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+            <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="p-1 rounded-md bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </span>
+              Click-to-Call Optimized
+            </h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Clear structural flow. We make sure customers find your service details and call button within three seconds.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 p-6 rounded-2xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 text-sm max-w-3xl mx-auto text-center">
+          <span class="font-bold text-slate-900 dark:text-white">What is not included:</span> Custom internal database apps, intricate secure login memberships, or full automated e-commerce webshops. We build robust brochure websites built specifically to drive phone calls and lead-form submissions.
+        </div>
+      </div>
+    </section>
+
+    <!-- PREVIEW FIRST GUARANTEE BANNER -->
+    <section class="py-12 bg-brand-600 text-white transition-colors relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="max-w-2xl">
+            <span class="bg-brand-700/80 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wide">The Preview Guarantee</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold mt-3">You pay nothing until you approve the design.</h3>
+            <p class="text-brand-100 mt-2 text-sm sm:text-base leading-relaxed">
+              We gather public info about your service, draft a beautiful functional layout, and send you a link to play with. If you don't love it, walk away. You haven't paid a dime.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <a href="#request-form" class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-brand-600 shadow-sm hover:bg-brand-50 transition-all">
+              Claim Your Free Preview
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE WORK SCREENSHOTS & REAL PREVIEW EXAMPLES -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-950 transition-colors border-b border-slate-200 dark:border-slate-800">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Real sites built on Xstream Flex</h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-1">Here is a glimpse of what is possible with our high-converting framework.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="bg-white dark:bg-slate-900 p-4 rounded-3xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-800">
+            <img src="https://xmg.xstreamflex.com/i/9aYeNn" alt="northlinempl1.JPG" class="rounded-2xl shadow-sm w-full h-48 sm:h-64 object-cover object-top mb-4" />
+            <h4 class="font-bold text-slate-900 dark:text-white">Northline Service Portal</h4>
+            <p class="text-xs text-slate-500 mt-1">Brochure & Leads site — Call + Local Form focus</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-4 rounded-3xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-800">
+            <img src="https://xmg.xstreamflex.com/i/LNyG00" alt="northlineempl3.JPG" class="rounded-2xl shadow-sm w-full h-48 sm:h-64 object-cover object-top mb-4" />
+            <h4 class="font-bold text-slate-900 dark:text-white">Mobile Responsive Layout</h4>
+            <p class="text-xs text-slate-500 mt-1">Tested across Apple and Android screens</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DUAL COLUMN CONTACT / REQUEST FORM & BIO -->
+    <section id="request-form" class="py-16 bg-white dark:bg-slate-900 transition-colors">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Column 1: Direct Personal Bio / Info -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="h-16 w-16 flex-shrink-0 rounded-full overflow-hidden ring-4 ring-brand-500/10">
+                <img src="https://xmg.xstreamflex.com/i/IZKFnp" alt="meai.png" class="h-full w-full object-cover" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Premium Independent Build</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Direct developer support • Work evenings</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-350 leading-relaxed">
+              Hi, I’m the elite web developer behind Xstream Flex. I built this model specifically because local owners are tired of paying thousands of dollars up front to agencies, only to receive slow, over-complicated WordPress installations.
+            </p>
+            <p class="text-sm text-slate-600 dark:text-slate-350 leading-relaxed">
+              I work evenings. Edits and fixes usually land on your test server by the next morning. 
+            </p>
+
+            <div class="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wide text-slate-400">Prefer direct Email?</span>
+                <p class="text-sm font-semibold text-slate-900 dark:text-white mt-1">
+                  <a href="mailto:contact@xstreamflex.com" class="hover:underline text-brand-600 dark:text-brand-400">contact@xstreamflex.com</a>
+                </p>
+                <p class="text-xs text-slate-500 mt-0.5">I respond personally on work nights. No high-pressure sales calls.</p>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-slate-500">
+                <span class="inline-block h-2.5 w-2.5 rounded-full bg-green-500"></span>
+                Accepting new founding clients this week
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Form -->
+          <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-950 p-6 sm:p-8 rounded-3xl ring-1 ring-slate-200/60 dark:ring-slate-800">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Request your free site preview</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">We will generate a real draft based on your public information. No upfront card required.</p>
+            
+            <form action="https://formspree.io/f/placeholder" method="POST" class="mt-6 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Your Name</label>
+                  <input type="text" name="name" id="name" required class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="business-name" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Business Name</label>
+                  <input type="text" name="business-name" id="business-name" required class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="city" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">City & State</label>
+                  <input type="text" name="city" id="city" required placeholder="e.g. Chicago, IL" class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="phone" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Phone Number</label>
+                  <input type="tel" name="phone" id="phone" required class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label for="email" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Email Address</label>
+                <input type="email" name="email" id="email" required class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+              </div>
+
+              <div>
+                <label for="link" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Current Website or Google Listing Link <span class="text-slate-400 font-normal">(Optional)</span></label>
+                <input type="url" name="link" id="link" placeholder="https://..." class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
+              </div>
+
+              <div>
+                <label for="package-select" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">What package do you need?</label>
+                <select name="package" id="package-select" class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                  <option value="Preview only">Preview only (decide package later)</option>
+                  <option value="Site">Site ($897 setup)</option>
+                  <option value="Site + Chat">Site + Chat ($1,097 setup - Popular)</option>
+                  <option value="Site + Chat + Content">Site + Chat + Content ($1,297 setup)</option>
+                  <option value="Not sure">Not sure yet</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1">Short message or specific service goals</label>
+                <textarea name="message" id="message" rows="3" placeholder="Tell us what services your local business focuses on..." class="block w-full rounded-lg border-0 bg-white dark:bg-slate-900 p-2.5 text-sm text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-800 focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="block w-full text-center rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600">
+                  Submit Preview Request
+                </button>
+                <p class="text-[10px] text-center text-slate-400 mt-2">By submitting you agree to allow us to review public business information to create a drafted website preview.</p>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- DYNAMIC BILLING TOGGLE & THEME SELECTOR JS -->
+  <script>
+    // Theme setup and handling
+    const root = document.documentElement;
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        root.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Set initial theme
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+
+    function toggleTheme() {
+      if (root.classList.contains('dark')) {
+        applyTheme('light');
+      } else {
+        applyTheme('dark');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', toggleTheme);
+    themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Mobile Menu Drawer Handler
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Dynamic Care Pricing Handler
+    const billingToggle = document.getElementById('billing-toggle');
+    const billingToggleHandle = document.getElementById('billing-toggle-handle');
+    const billingMonthlyText = document.getElementById('billing-monthly-text');
+    const billingYearlyText = document.getElementById('billing-yearly-text');
+
+    const p1Care = document.getElementById('p1-care-price');
+    const p1Period = document.getElementById('p1-care-period');
+    const p2Care = document.getElementById('p2-care-price');
+    const p2Period = document.getElementById('p2-care-period');
+    const p3Care = document.getElementById('p3-care-price');
+    const p3Period = document.getElementById('p3-care-period');
+
+    let isYearly = false;
+
+    function updateCarePricing() {
+      if (isYearly) {
+        // Annual billing care (20% off monthly rates)
+        // monthly equivalents: $50 -> $40, $75 -> $60, $149 -> $119
+        p1Care.textContent = '$40';
+        p1Period.textContent = '/mo equivalent (billed yearly)';
+        p2Care.textContent = '$60';
+        p2Period.textContent = '/mo equivalent (billed yearly)';
+        p3Care.textContent = '$119';
+        p3Period.textContent = '/mo equivalent (billed yearly)';
+
+        billingToggleHandle.classList.replace('translate-x-0', 'translate-x-5');
+        billingToggle.setAttribute('aria-checked', 'true');
+        billingYearlyText.classList.add('text-brand-600', 'dark:text-brand-400');
+        billingMonthlyText.classList.remove('text-brand-600', 'dark:text-brand-400');
+      } else {
+        // Standard Monthly Care
+        p1Care.textContent = '$50';
+        p1Period.textContent = '/mo hosting & care';
+        p2Care.textContent = '$75';
+        p2Period.textContent = '/mo hosting & care';
+        p3Care.textContent = '$149';
+        p3Period.textContent = '/mo hosting & care';
+
+        billingToggleHandle.classList.replace('translate-x-5', 'translate-x-0');
+        billingToggle.setAttribute('aria-checked', 'false');
+        billingMonthlyText.classList.add('text-brand-600', 'dark:text-brand-400');
+        billingYearlyText.classList.remove('text-brand-600', 'dark:text-brand-400');
+      }
+    }
+
+    billingToggle.addEventListener('click', () => {
+      isYearly = !isYearly;
+      updateCarePricing();
+    });
+
+    // Helper to select form dropdown automatically when package card is clicked
+    function selectPackage(packageName) {
+      const selectElem = document.getElementById('package-select');
+      if (selectElem) {
+        selectElem.value = packageName;
+      }
+    }
+
+    // Initialize with standard monthly selection highlight style
+    billingMonthlyText.classList.add('text-brand-600', 'dark:text-brand-400');
+  </script>
+
+<footer class="bg-slate-900 text-slate-400 border-t border-slate-800 transition-colors duration-300">
+    <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      
+      <!-- Top footer block -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Brand brief -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Favicon Badge" class="h-6 w-6 rounded" />
+            <span class="text-lg font-bold text-white">Xstream Flex</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            High-converting local business portals built with speed and optimized for real human conversations. Zero waste, direct developer support.
+          </p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Ecosystem</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home Base</a></li>
+            <li><a href="examples.html" class="hover:text-white transition-colors">Demos & Examples</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition-colors">Packages & Setup</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Resources</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="how-it-works.html" class="hover:text-white transition-colors">Our Detailed Process</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Local Marketing Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Developer</a></li>
+          </ul>
+        </div>
+
+        <!-- Small Contact Details & Real Person info -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Direct Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Have a question or request before the preview?</p>
+          <a href="mailto:contact@xstreamflex.com" class="text-xs font-semibold text-white hover:underline">contact@xstreamflex.com</a>
+        </div>
+
+      </div>
+
+      <!-- Divider line -->
+      <hr class="border-slate-800 my-8" />
+
+      <!-- Bottom Credits and Stubs -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Xstream Flex. All rights reserved. Crafted by premium independent developers.</p>
+        
+        <div class="flex items-center gap-4">
+          <a href="privacy.html" class="hover:underline hover:text-slate-350">Privacy Policy</a>
+          <span>·</span>
+          <a href="terms.html" class="hover:underline hover:text-slate-350">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial system/localstorage check
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
