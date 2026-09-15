@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Business Marketing & Website Blog — Xstream Flex</title>
+  <meta name="description" content="Get practical, direct advice on getting leads, phone calls, and clean websites without the complicated tech jargon. Written for local service business owners.">
+  <link rel="icon" type="image/x-icon" href="https://xmg.xstreamflex.com/i/ecOGtT">
+  
+  <!-- Include sync script for dynamic blog hub -->
+  <script src="articles-data.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae2fd',
+              300: '#7cc8fc',
+              400: '#38acf8',
+              500: '#0e91eb',
+              600: '#0273ca',
+              700: '#035ca3',
+              800: '#074e87',
+              900: '#0c4270',
+              950: '#082a4a',
+            },
+            neutral: {
+              850: '#1f293d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom fine-tuning of transitions */
+    .theme-transition {
+      transition: background-color 0.3s ease, border-color 0.3s ease, text-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 theme-transition flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/90 transition-colors duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+      <!-- Logo / Identity -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Logo" class="h-8 w-8 rounded-lg object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500 transition-all duration-300" />
+        <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Xstream <span class="text-brand-600 dark:text-brand-400">Flex</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="index.html" class="text-brand-600 dark:text-brand-400 font-semibold transition-colors">Home</a>
+        <a href="examples.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Examples</a>
+        <a href="pricing.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Packages</a>
+        <a href="how-it-works.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">How It Works</a>
+        <a href="blog.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Blog</a>
+        <a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA & Controls -->
+      <div class="hidden md:flex items-center gap-4">
+        <!-- Light/Dark Toggle -->
+        <button id="theme-toggle-btn" aria-label="Toggle Theme" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <!-- Sun Icon -->
+          <svg id="sun-icon" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg id="moon-icon" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a href="index.html#request-form" class="inline-flex justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 transition-all">
+          Request a preview
+        </a>
+      </div>
+
+      <!-- Mobile Nav & Theme Button Wrapper -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Mobile Theme Toggle -->
+        <button id="theme-toggle-btn-mobile" aria-label="Toggle Theme Mobile" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <svg class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 transition-all duration-300">
+      <a href="index.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-brand-600 dark:text-brand-400 bg-slate-50 dark:bg-slate-900">Home</a>
+      <a href="examples.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Examples</a>
+      <a href="pricing.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Packages</a>
+      <a href="how-it-works.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">How It Works</a>
+      <a href="blog.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Blog</a>
+      <a href="contact.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Contact</a>
+      <hr class="border-slate-150 dark:border-slate-800 my-2">
+      <a href="index.html#request-form" class="block w-full text-center rounded-lg bg-brand-600 px-4 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-brand-500">
+        Request a preview
+      </a>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- MAIN NEWSROOM LANDING -->
+  <main class="flex-grow">
+    
+    <!-- Hero Header Intro Section -->
+    <section class="py-12 md:py-16 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-1.5 rounded-md bg-brand-50 px-2 py-1 text-xs font-medium text-brand-700 ring-1 ring-inset ring-brand-700/10 dark:bg-brand-950/40 dark:text-brand-300">
+            Plain Talk Marketing
+          </span>
+          <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+            Real Business Guides. <span class="text-brand-600 dark:text-brand-400">No jargon.</span>
+          </h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            Straightforward strategies, teardowns, and guidelines for service business owners looking to get more phone calls and client forms, without complex software bloat.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search, Filter & Featured Post Section -->
+    <section class="py-10">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        
+        <!-- Search & Category Filters -->
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between pb-8 border-b border-slate-200 dark:border-slate-800">
+          <!-- Filter Pills -->
+          <div class="flex flex-wrap gap-2 w-full md:w-auto" id="filter-container">
+            <button class="filter-pill active px-4 py-1.5 rounded-full text-sm font-medium bg-brand-600 text-white transition-all shadow-sm" data-category="all">
+              All Articles
+            </button>
+            <button class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-all" data-category="strategy">
+              Web Strategy
+            </button>
+            <button class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-all" data-category="conversion">
+              Conversion / Calls
+            </button>
+            <button class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-brand-500 transition-all" data-category="case-study">
+              Case Studies
+            </button>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="relative w-full md:w-72">
+            <input type="text" id="search-input" placeholder="Search guides..." class="w-full px-4 py-2 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 dark:text-slate-200 placeholder-slate-400" />
+            <svg class="absolute right-3 top-2.5 h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- HERO ARTICLE BANNER (Most Important Piece) -->
+        <div id="hero-banner-container" class="mt-10">
+          <div class="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all hover:shadow-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+              <!-- Left: Visual Asset -->
+              <div class="lg:col-span-7 h-64 sm:h-96 lg:h-full relative min-h-[300px]">
+                <img src="https://xmg.xstreamflex.com/i/9aYeNn" alt="Northline Service Website Example Blueprint" class="absolute inset-0 h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent"></div>
+              </div>
+
+              <!-- Right: Content -->
+              <div class="p-8 lg:p-12 lg:col-span-5 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-4">
+                    <span>Featured Article</span>
+                    <span>•</span>
+                    <span>10 Min Read</span>
+                  </div>
+                  <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+                    How Northline Excavation Built & Launched Their Leads Engine in 3 Days
+                  </h2>
+                  <p class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                    We break down the exact wireframe and conversion structure of the Northline design. See why simple click-to-calls beat complicated menus every single time.
+                  </p>
+                </div>
+
+                <div class="mt-8 flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-800">
+                  <div class="flex items-center gap-3">
+                    <img src="https://xmg.xstreamflex.com/i/IZKFnp" alt="David - Developer" class="h-10 w-10 rounded-full object-cover border-2 border-brand-500/10" />
+                    <div>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white">David Miller</p>
+                      <p class="text-[10px] text-slate-400">Head Developer, Xstream Flex</p>
+                    </div>
+                  </div>
+                  <a href="blog-post-1.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-500 dark:text-brand-400 dark:hover:text-brand-300">
+                    Read Teardown
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARTICLE GRID SECTION -->
+    <section class="py-12 bg-slate-100/50 dark:bg-slate-900/40 border-t border-b border-slate-200/60 dark:border-slate-800/60 transition-colors">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-8">Latest Insights & Guides</h3>
+
+        <!-- Responsive Card Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+          
+          <!-- Article Card 1 -->
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-category="strategy">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://xmg.xstreamflex.com/i/LNyG00" alt="Local website on a laptop screen" class="h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 bg-brand-50 px-2 py-0.5 rounded text-[10px] font-semibold text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                Web Strategy
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] text-slate-400 font-medium">May 14, 2026 • 6 min read</span>
+                <h4 class="mt-2 text-lg font-bold text-slate-900 dark:text-white hover:text-brand-600 transition-colors">
+                  <a href="blog-post-2.html">Why We Send a Real Site Preview Before You Pay</a>
+                </h4>
+                <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
+                  Most design shops sell pitches and presentations. We skip the slide decks entirely and build a functional skeleton of your actual site from your public Google listings. Here’s why.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-900 flex items-center justify-between">
+                <span class="text-xs text-slate-400 font-medium">By David Miller</span>
+                <a href="blog-post-2.html" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">Read Article →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article Card 2 -->
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-category="conversion">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://xmg.xstreamflex.com/i/ZzhpnN" alt="Mobile layout optimization detail" class="h-full w-full object-cover" />
+              <span class="absolute top-3 left-3 bg-brand-50 px-2 py-0.5 rounded text-[10px] font-semibold text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                Conversion
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] text-slate-400 font-medium">April 28, 2026 • 8 min read</span>
+                <h4 class="mt-2 text-lg font-bold text-slate-900 dark:text-white hover:text-brand-600 transition-colors">
+                  <a href="blog-post-3.html">The Crucial Role of Site Chat Helpers for After-Hours Leads</a>
+                </h4>
+                <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
+                  Contractors, cleanups, and local technicians usually miss half of their incoming inquiries after 5:00 PM. We explain how simple, automatic text helpers salvage those opportunities.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-900 flex items-center justify-between">
+                <span class="text-xs text-slate-400 font-medium">By David Miller</span>
+                <a href="blog-post-3.html" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">Read Article →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article Card 3 -->
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-category="case-study">
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Company icon layout" class="h-full w-full object-cover p-8 bg-slate-50 dark:bg-slate-900" />
+              <span class="absolute top-3 left-3 bg-brand-50 px-2 py-0.5 rounded text-[10px] font-semibold text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                Case Study
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] text-slate-400 font-medium">April 10, 2026 • 5 min read</span>
+                <h4 class="mt-2 text-lg font-bold text-slate-900 dark:text-white hover:text-brand-600 transition-colors">
+                  <a href="blog-post-4.html">What Local Businesses Lose by Choosing Complex Online Stores</a>
+                </h4>
+                <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
+                  Service companies don't need shopping carts. Adding complex Shopify setups or WooCommerce plugins causes slow load times and confuses clients who just want to call. Let's look at the data.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-900 flex items-center justify-between">
+                <span class="text-xs text-slate-400 font-medium">By David Miller</span>
+                <a href="blog-post-4.html" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">Read Article →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="py-16">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="relative overflow-hidden rounded-2xl bg-brand-900 px-6 py-12 shadow-xl dark:bg-slate-900 sm:px-12 sm:py-16">
+          <div class="relative z-10 mx-auto max-w-2xl text-center">
+            <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Get straightforward local business tips</h2>
+            <p class="mx-auto mt-4 max-w-xl text-sm sm:text-base leading-relaxed text-brand-200 dark:text-slate-300">
+              I write once or twice a month about site setups, local SEO mechanics, and conversion patterns. No sales funnels, no spam.
+            </p>
+            <form class="mx-auto mt-8 flex max-w-md flex-col sm:flex-row gap-x-4 gap-y-3" onsubmit="event.preventDefault(); alert('Thanks for joining the list! First guide is heading your way shortly.');">
+              <label for="email-address" class="sr-only">Email address</label>
+              <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-lg border-0 bg-white/10 px-4 py-3 text-white placeholder-slate-400 focus:ring-2 focus:ring-white sm:text-sm" placeholder="your.name@business.com">
+              <button type="submit" class="flex-none rounded-lg bg-white px-5 py-3 text-sm font-semibold text-brand-900 shadow-sm hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                Join Free List
+              </button>
+            </form>
+          </div>
+          <!-- Abstract Background Circle Accents -->
+          <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="url(#newsletter-grad)" fill-opacity="0.15" />
+            <defs>
+              <radialGradient id="newsletter-grad">
+                <stop stop-color="#38acf8" />
+                <stop offset="1" stop-color="#0273ca" />
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- DYNAMIC JAVASCRIPT FOR TOGGLES, FILTERING & SEARCH -->
+  <script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    const htmlElement = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Initialize Theme
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(currentTheme);
+      });
+    }
+
+    if (themeToggleBtnMobile) {
+      themeToggleBtnMobile.addEventListener('click', () => {
+        const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(currentTheme);
+      });
+    }
+
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Search and Category Filter Logic (Client-side implementation)
+    const searchInput = document.getElementById('search-input');
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const articleCards = document.querySelectorAll('#articles-grid article');
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function filterArticles() {
+      articleCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const title = card.querySelector('h4').textContent.toLowerCase();
+        const excerpt = card.querySelector('p').textContent.toLowerCase();
+        
+        const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+        const matchesSearch = title.includes(searchQuery) || excerpt.includes(searchQuery);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        // Reset active state
+        filterPills.forEach(p => {
+          p.classList.remove('bg-brand-600', 'text-white', 'shadow-sm', 'active');
+          p.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-800');
+        });
+
+        // Set active state on clicked
+        pill.classList.add('bg-brand-600', 'text-white', 'shadow-sm', 'active');
+        pill.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-800');
+
+        currentCategory = pill.getAttribute('data-category');
+        filterArticles();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase();
+        filterArticles();
+      });
+    }
+  </script>
+
+
+<footer class="bg-slate-900 text-slate-400 border-t border-slate-800 transition-colors duration-300">
+    <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      
+      <!-- Top footer block -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Brand brief -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Favicon Badge" class="h-6 w-6 rounded" />
+            <span class="text-lg font-bold text-white">Xstream Flex</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            High-converting local business portals built with speed and optimized for real human conversations. Zero waste, direct developer support.
+          </p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Ecosystem</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home Base</a></li>
+            <li><a href="examples.html" class="hover:text-white transition-colors">Demos & Examples</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition-colors">Packages & Setup</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Resources</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="how-it-works.html" class="hover:text-white transition-colors">Our Detailed Process</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Local Marketing Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Developer</a></li>
+          </ul>
+        </div>
+
+        <!-- Small Contact Details & Real Person info -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Direct Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Have a question or request before the preview?</p>
+          <a href="mailto:contact@xstreamflex.com" class="text-xs font-semibold text-white hover:underline">contact@xstreamflex.com</a>
+        </div>
+
+      </div>
+
+      <!-- Divider line -->
+      <hr class="border-slate-800 my-8" />
+
+      <!-- Bottom Credits and Stubs -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Xstream Flex. All rights reserved. Crafted by premium independent developers.</p>
+        
+        <div class="flex items-center gap-4">
+          <a href="privacy.html" class="hover:underline hover:text-slate-350">Privacy Policy</a>
+          <span>·</span>
+          <a href="terms.html" class="hover:underline hover:text-slate-350">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial system/localstorage check
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
