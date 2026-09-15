@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — Xstream Flex</title>
+  <meta name="description" content="See exactly how we build, host, and launch your local business website. Get a real preview before you pay a single dollar.">
+  <link rel="icon" type="image/x-icon" href="https://xmg.xstreamflex.com/i/ecOGtT">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae2fd',
+              300: '#7cc8fc',
+              400: '#38acf8',
+              500: '#0e91eb',
+              600: '#0273ca',
+              700: '#035ca3',
+              800: '#074e87',
+              900: '#0c4270',
+              950: '#082a4a',
+            },
+            neutral: {
+              850: '#1f293d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom fine-tuning of transitions */
+    .theme-transition {
+      transition: background-color 0.3s ease, border-color 0.3s ease, text-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 theme-transition min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/90 transition-colors duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+      <!-- Logo / Identity -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Logo" class="h-8 w-8 rounded-lg object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500 transition-all duration-300" />
+        <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Xstream <span class="text-brand-600 dark:text-brand-400">Flex</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="index.html" class="text-brand-600 dark:text-brand-400 font-semibold transition-colors">Home</a>
+        <a href="examples.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Examples</a>
+        <a href="pricing.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Packages</a>
+        <a href="how-it-works.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">How It Works</a>
+        <a href="blog.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Blog</a>
+        <a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA & Controls -->
+      <div class="hidden md:flex items-center gap-4">
+        <!-- Light/Dark Toggle -->
+        <button id="theme-toggle-btn" aria-label="Toggle Theme" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <!-- Sun Icon -->
+          <svg id="sun-icon" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg id="moon-icon" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a href="index.html#request-form" class="inline-flex justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 transition-all">
+          Request a preview
+        </a>
+      </div>
+
+      <!-- Mobile Nav & Theme Button Wrapper -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Mobile Theme Toggle -->
+        <button id="theme-toggle-btn-mobile" aria-label="Toggle Theme Mobile" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <svg class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 transition-all duration-300">
+      <a href="index.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-brand-600 dark:text-brand-400 bg-slate-50 dark:bg-slate-900">Home</a>
+      <a href="examples.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Examples</a>
+      <a href="pricing.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Packages</a>
+      <a href="how-it-works.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">How It Works</a>
+      <a href="blog.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Blog</a>
+      <a href="contact.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Contact</a>
+      <hr class="border-slate-150 dark:border-slate-800 my-2">
+      <a href="index.html#request-form" class="block w-full text-center rounded-lg bg-brand-600 px-4 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-brand-500">
+        Request a preview
+      </a>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- MAIN PAGE WRAPPER -->
+  <main class="flex-grow">
+    
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-900">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-950/40 dark:text-brand-300 mb-4 ring-1 ring-inset ring-brand-600/10 dark:ring-brand-400/20">
+            A practical, risk-free process
+          </span>
+          <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl leading-tight">
+            See your website <span class="text-brand-600 dark:text-brand-400">before</span> you pay a single dollar.
+          </h1>
+          <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            We don't do endless kickoff meetings, bloated proposals, or high-pressure sales calls. We gather your publicly available business details, build a working multipage preview site, and send you the link. If you love it, you choose a package and we launch. If not, you don't owe us anything.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#four-steps" class="rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-3 text-sm font-semibold shadow hover:bg-slate-800 dark:hover:bg-slate-100 transition-all">
+              See the 4 steps
+            </a>
+            <a href="#request-form" class="rounded-lg bg-brand-600 text-white px-5 py-3 text-sm font-semibold shadow hover:bg-brand-500 transition-all">
+              Get your free preview
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Background subtle graphics -->
+      <div class="absolute inset-y-0 right-0 hidden lg:block w-1/3 bg-slate-50 dark:bg-slate-900/40 border-l border-slate-100 dark:border-slate-900">
+        <div class="h-full flex items-center justify-center p-8">
+          <div class="relative w-full max-w-md">
+            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-brand-600 to-sky-400 opacity-20 blur-xl"></div>
+            <div class="relative bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl">
+              <span class="text-xs font-mono text-brand-600 dark:text-brand-400 font-bold block mb-2">// Developer Working Hours</span>
+              <p class="text-sm text-slate-700 dark:text-slate-300 font-medium">
+                "I build and polish sites during quiet evening hours. Edits requested during the day typically land in your inbox the very next morning."
+              </p>
+              <div class="mt-4 flex items-center gap-3">
+                <div class="h-8 w-8 rounded-full bg-brand-100 dark:bg-brand-950 flex items-center justify-center text-brand-600 dark:text-brand-300">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400">Direct Developer Attention • No Agencies</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE 4-STEP TIMELINE -->
+    <section id="four-steps" class="py-20 lg:py-28 bg-slate-50 dark:bg-slate-950 scroll-mt-12">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center mb-16">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Our Straightforward Setup Process
+          </h2>
+          <p class="mt-4 text-base text-slate-600 dark:text-slate-400">
+            Four simple phases to transform your local presence into a call-generating portal, with zero upfront risk.
+          </p>
+        </div>
+
+        <!-- 4 Step Interactive Staggered Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          <!-- Steps List (Left Column) -->
+          <div class="space-y-8">
+            
+            <!-- STEP 1 -->
+            <div class="relative bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-white font-bold text-lg">
+                  1
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">You get a preview</h3>
+                  <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Simply fill out our short preview request form. We compile details from your public Google listing, Facebook page, or existing outdated site to build a fresh, multi-page layout. You pay nothing to see this preview.
+                  </p>
+                  <span class="inline-block mt-3 text-xs font-semibold text-brand-600 dark:text-brand-400">Zero credit card or billing details required.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="relative bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-white font-bold text-lg">
+                  2
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">You reply YES</h3>
+                  <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Once you review your custom draft link, tell us what you think. If you want to move forward, pick your preferred plan: standard **Site** (clean local brochure) or **Site + Chat** (includes our active visitor assistant chat helper).
+                  </p>
+                  <div class="mt-3 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                    <svg class="h-4 w-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span> founding pricing is active right now.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="relative bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-white font-bold text-lg">
+                  3
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">We go live</h3>
+                  <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    We secure your custom domain name (or wire up your existing one), configure SSL certificates for secure browsing, set up the database and optimized hosting. Your site goes fully live in just 1–3 days.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="relative bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:shadow-md">
+              <div class="flex items-start gap-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-white font-bold text-lg">
+                  4
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Small fixes & care</h3>
+                  <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    You get **3 full revision rounds** in the first 2 weeks to make it exactly right. Afterward, our light care plan handles your standard hosting, uptime monitoring, security checks, and monthly text/photo updates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Staggered Live Assets Grid (Right Column) -->
+          <div class="space-y-6">
+            <div class="relative">
+              <div class="absolute -top-4 -left-4 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl -z-10"></div>
+              
+              <!-- Asset Card 1: Northline Work (Live Example Screen) -->
+              <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-lg p-4">
+                <span class="text-xs uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 block mb-2">Step 1 Preview Sample</span>
+                <img src="https://xmg.xstreamflex.com/i/9aYeNn" alt="northlinempl1.JPG" class="rounded-lg shadow-sm w-full h-48 object-cover object-top" />
+                <div class="mt-3 flex items-center justify-between text-xs text-slate-500">
+                  <span>Draft built for Northline</span>
+                  <span class="text-brand-600 dark:text-brand-400 font-semibold">Active Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Asset Card 2: meai.png Developer Setup UI -->
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-lg p-4">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="p-1 rounded bg-slate-100 dark:bg-slate-800">
+                  <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="favicon (2).ico" class="h-6 w-6 rounded" />
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200">Xsite Build Interface</h4>
+                  <p class="text-[10px] text-slate-400">Multi-page framework & styling generator</p>
+                </div>
+              </div>
+              <img src="https://xmg.xstreamflex.com/i/IZKFnp" alt="meai.png" class="rounded-lg shadow-sm w-full h-44 object-cover" />
+            </div>
+
+            <!-- Quick note box -->
+            <div class="bg-brand-50 dark:bg-brand-950/30 border border-brand-100 dark:border-brand-900 p-5 rounded-xl">
+              <h4 class="text-sm font-semibold text-brand-900 dark:text-brand-200 flex items-center gap-2">
+                <svg class="h-5 w-5 text-brand-600 dark:text-brand-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                Personal, Professional Developer Schedule
+              </h4>
+              <p class="mt-2 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Because we build previews before charging, we only work with businesses we know we can help. Edits and requests are worked on during evening cycles, keeping our focus highly sharp and turnaround times down to the next business morning.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE WORK PREVIEWS SNEAK PEEK -->
+    <section class="py-20 bg-white dark:bg-slate-900/40 border-t border-b border-slate-200/50 dark:border-slate-800/50">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <div class="lg:col-span-1">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Real examples. Real fast.</h3>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              We focus on multipage brochure layouts, call generation, click-to-dial options, and standard contact forms. This ensures mobile visitors can reach you within two clicks.
+            </p>
+            <p class="mt-4 text-xs font-semibold text-brand-600 dark:text-brand-400">
+              *Not built for complex checkout systems or full e-commerce stores.
+            </p>
+            <div class="mt-6">
+              <a href="examples.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-500 dark:text-brand-400">
+                Browse our live examples page
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-3 shadow-sm">
+              <img src="https://xmg.xstreamflex.com/i/LNyG00" alt="northlineempl3.JPG" class="rounded-lg shadow-sm w-full h-40 object-cover object-top" />
+              <div class="mt-3">
+                <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Example Site Layout</span>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white mt-0.5">Northline Care Center</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Multi-page layout showing service sections, custom schedules, and direct click-to-call integrations.</p>
+              </div>
+            </div>
+
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-3 shadow-sm">
+              <img src="https://xmg.xstreamflex.com/i/ZzhpnN" alt="northlinempl1.JPG" class="rounded-lg shadow-sm w-full h-40 object-cover object-top" />
+              <div class="mt-3">
+                <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Mobile-Friendly Layout</span>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white mt-0.5">Contact-Optimized Pages</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Our layouts render perfectly across smartphones and small screens to capture fast-moving customers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED COMPARISON / FAQ SECTION -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">Common Questions About Our Process</h2>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">Clear answers with no marketing fluff.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-base font-bold text-slate-900 dark:text-white">How do you build previews for free?</h4>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              We leverage an advanced internal template system and standard public listings. Because local service businesses usually need similar components—service cards, hours, contact forms, click-to-call, and bios—we can map your details into a beautiful draft very rapidly.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-base font-bold text-slate-900 dark:text-white">What happens if I don't like the preview?</h4>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Nothing. You can let us know it's not a fit, and we won't follow up with aggressive emails. The draft will sit on our development sandbox and automatically expire after 14 days.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-base font-bold text-slate-900 dark:text-white">Who owns the domain and website content?</h4>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              You do. We can purchase and manage the domain for you under your package fee, or wire up your existing domain. If you ever choose to host elsewhere, we'll hand over the assets with no exit penalties.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-base font-bold text-slate-900 dark:text-white">What does the care plan include?</h4>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Our monthly hosting and care includes high-performance hosting, an active SSL certificate (HTTPS), automatic daily server backups, and up to 30 minutes of manual text or image swaps each month (plenty for occasional schedule or service edits).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUEST A PREVIEW FORM SECTION -->
+    <section id="request-form" class="py-20 lg:py-28 bg-white dark:bg-slate-900 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-12">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="mx-auto max-w-3xl">
+          
+          <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Request Your Custom Preview</h2>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+              No payment required. We will review your public details and compile your customized multipage brochure layout.
+            </p>
+          </div>
+
+          <form action="#" method="POST" class="space-y-6 bg-slate-50 dark:bg-slate-950 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Name -->
+              <div>
+                <label for="full-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Your Name</label>
+                <input type="text" name="full-name" id="full-name" required placeholder="John Doe" class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500" />
+              </div>
+
+              <!-- Business Name -->
+              <div>
+                <label for="business-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Business Name</label>
+                <input type="text" name="business-name" id="business-name" required placeholder="Main Street Plumbing" class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500" />
+              </div>
+
+              <!-- City -->
+              <div>
+                <label for="city" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">City / Service Area</label>
+                <input type="text" name="city" id="city" required placeholder="Austin, TX" class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500" />
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Phone Number</label>
+                <input type="tel" name="phone" id="phone" required placeholder="(512) 555-0199" class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500" />
+              </div>
+
+              <!-- Email -->
+              <div class="sm:col-span-2">
+                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Email Address</label>
+                <input type="email" name="email" id="email" required placeholder="you@yourdomain.com" class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500" />
+              </div>
+
+              <!-- Public Link (Optional) -->
+              <div class="sm:col-span-2">
+                <label for="listing-link" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Website or Google Listing Link (Optional)</label>
+                <input type="url" name="listing-link" id="listing-link" placeholder="https://google.com/maps/place/..." class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500" />
+                <p class="mt-1 text-[11px] text-slate-400">Helps us pull images, existing services, and descriptions correctly.</p>
+              </div>
+
+              <!-- Dropdown -->
+              <div class="sm:col-span-2">
+                <label for="package-tier" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">What do you need?</label>
+                <select name="package-tier" id="package-tier" class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500">
+                  <option value="preview-only">Preview Only (Risk-free exploration)</option>
+                  <option value="site">Standard Multipage Brochure Site ($897 setup)</option>
+                  <option value="site-chat">Brochure Site + AI Helper Chat ($1,097 setup)</option>
+                  <option value="not-sure">Not sure yet (I want to chat first)</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="sm:col-span-2">
+                <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">Short Message or Special Requests</label>
+                <textarea name="message" id="message" rows="4" placeholder="Tell us about the services you want highlighted..." class="mt-2 block w-full rounded-lg border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 text-sm shadow-sm focus:border-brand-500 focus:ring-brand-500"></textarea>
+              </div>
+
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div class="text-xs text-slate-500 dark:text-slate-400">
+                <p class="font-semibold text-slate-700 dark:text-slate-300">Prefer direct email?</p>
+                <p class="mt-0.5">Contact: <a href="mailto:contact@xstreamflex.com" class="underline hover:text-brand-600">contact@xstreamflex.com</a></p>
+                <p class="mt-1">"I respond personally on work nights."</p>
+              </div>
+              <button type="submit" class="w-full sm:w-auto rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 text-sm shadow transition-all">
+                Request My Free Preview
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- LIGHT/DARK THEME TOGGLE & MOBILE NAVIGATION SCRIPTS -->
+  <script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    const htmlElement = document.documentElement;
+
+    // Check Local Storage or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      htmlElement.classList.add('dark');
+      htmlElement.classList.remove('light');
+    } else {
+      htmlElement.classList.add('light');
+      htmlElement.classList.remove('dark');
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.replace('dark', 'light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.replace('light', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', toggleTheme);
+    themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Mobile Menu Drawer Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+
+<footer class="bg-slate-900 text-slate-400 border-t border-slate-800 transition-colors duration-300">
+    <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      
+      <!-- Top footer block -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Brand brief -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Favicon Badge" class="h-6 w-6 rounded" />
+            <span class="text-lg font-bold text-white">Xstream Flex</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            High-converting local business portals built with speed and optimized for real human conversations. Zero waste, direct developer support.
+          </p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Ecosystem</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home Base</a></li>
+            <li><a href="examples.html" class="hover:text-white transition-colors">Demos & Examples</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition-colors">Packages & Setup</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Resources</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="how-it-works.html" class="hover:text-white transition-colors">Our Detailed Process</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Local Marketing Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Developer</a></li>
+          </ul>
+        </div>
+
+        <!-- Small Contact Details & Real Person info -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Direct Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Have a question or request before the preview?</p>
+          <a href="mailto:contact@xstreamflex.com" class="text-xs font-semibold text-white hover:underline">contact@xstreamflex.com</a>
+        </div>
+
+      </div>
+
+      <!-- Divider line -->
+      <hr class="border-slate-800 my-8" />
+
+      <!-- Bottom Credits and Stubs -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Xstream Flex. All rights reserved. Crafted by premium independent developers.</p>
+        
+        <div class="flex items-center gap-4">
+          <a href="privacy.html" class="hover:underline hover:text-slate-350">Privacy Policy</a>
+          <span>·</span>
+          <a href="terms.html" class="hover:underline hover:text-slate-350">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial system/localstorage check
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
