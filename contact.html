@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-transition">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Preview — Xstream Flex</title>
+  <meta name="description" content="Get a real multipage website preview for your local business before you pay. Fast, call-optimized sites with hosting and optional chat.">
+  <link rel="icon" type="image/x-icon" href="https://xmg.xstreamflex.com/i/ecOGtT">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae2fd',
+              300: '#7cc8fc',
+              400: '#38acf8',
+              500: '#0e91eb',
+              600: '#0273ca',
+              700: '#035ca3',
+              800: '#074e87',
+              900: '#0c4270',
+              950: '#082a4a',
+            },
+            neutral: {
+              850: '#1f293d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom fine-tuning of transitions */
+    .theme-transition {
+      transition: background-color 0.3s ease, border-color 0.3s ease, text-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/90 transition-colors duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+      <!-- Logo / Identity -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Logo" class="h-8 w-8 rounded-lg object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500 transition-all duration-300" />
+        <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Xstream <span class="text-brand-600 dark:text-brand-400">Flex</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="index.html" class="text-brand-600 dark:text-brand-400 font-semibold transition-colors">Home</a>
+        <a href="examples.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Examples</a>
+        <a href="pricing.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Packages</a>
+        <a href="how-it-works.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">How It Works</a>
+        <a href="blog.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Blog</a>
+        <a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA & Controls -->
+      <div class="hidden md:flex items-center gap-4">
+        <!-- Light/Dark Toggle -->
+        <button id="theme-toggle-btn" aria-label="Toggle Theme" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <!-- Sun Icon -->
+          <svg id="sun-icon" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg id="moon-icon" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a href="index.html#request-form" class="inline-flex justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 transition-all">
+          Request a preview
+        </a>
+      </div>
+
+      <!-- Mobile Nav & Theme Button Wrapper -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Mobile Theme Toggle -->
+        <button id="theme-toggle-btn-mobile" aria-label="Toggle Theme Mobile" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-900 transition-colors">
+          <svg class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 transition-all duration-300">
+      <a href="index.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-brand-600 dark:text-brand-400 bg-slate-50 dark:bg-slate-900">Home</a>
+      <a href="examples.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Examples</a>
+      <a href="pricing.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Packages</a>
+      <a href="how-it-works.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">How It Works</a>
+      <a href="blog.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Blog</a>
+      <a href="contact.html" class="block rounded-lg px-3 py-2 text-base font-semibold text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900">Contact</a>
+      <hr class="border-slate-150 dark:border-slate-800 my-2">
+      <a href="index.html#request-form" class="block w-full text-center rounded-lg bg-brand-600 px-4 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-brand-500">
+        Request a preview
+      </a>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- MAIN CONTACT PAGE WRAPPER -->
+  <main class="flex-grow">
+    
+    <!-- Hero Header block -->
+    <section class="py-12 md:py-20 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-900">
+      <div class="mx-auto max-w-5xl px-4 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 dark:bg-brand-950/50 px-3 py-1 text-xs font-medium text-brand-700 dark:text-brand-300 ring-1 ring-inset ring-brand-600/10 dark:ring-brand-400/20 mb-4">
+          No credit card required · No high-pressure sales calls
+        </span>
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          Let’s build your preview site.
+        </h1>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Provide some basic public information below. I’ll design a custom, multipage draft of your local service website and send you a real link to click through. 
+        </p>
+      </div>
+    </section>
+
+    <!-- Two Column Grid for Contact / Form -->
+    <section id="request-form-section" class="py-16 mx-auto max-w-7xl px-4 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Side: Informational, trust anchors, developer profile -->
+        <div class="lg:col-span-5 space-y-8">
+          
+          <!-- Personal Bio Card with Asset 3 -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 shadow-sm">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+              <div class="h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-brand-500/20">
+                <img src="https://xmg.xstreamflex.com/i/IZKFnp" alt="meai.png" class="h-full w-full object-cover" />
+              </div>
+              <div class="text-center sm:text-left space-y-2">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Direct Developer Access</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Hi, I’m the lead developer at Xstream Flex. I handle layout setup, configurations, and care plans myself. I work evenings; edits or previews usually land in your inbox the next business day.
+                </p>
+                <div class="pt-2 text-xs text-slate-500">
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">Prefer email?</span> Send a message to <a href="mailto:contact@xstreamflex.com" class="text-brand-600 dark:text-brand-400 hover:underline font-medium">contact@xstreamflex.com</a>. I respond on work nights.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust bullets -->
+          <div class="space-y-6">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">What to expect next</h3>
+            
+            <div class="flex gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 font-bold text-sm">
+                1
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Information gathering</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                  Using your current website, Google Maps profile, or social media link, I’ll extract your exact services, service areas, colors, and numbers.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 font-bold text-sm">
+                2
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">A clickable draft in 2 days</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                  I will email you a private staging URL containing a multi-page framework built for clear, immediate customer calls. No flat mockup PDFs.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 font-bold text-sm">
+                3
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Simple decision</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                  If you love it, we plug in your domain, handle the hosting, and turn it live. If you don't, you pay absolutely nothing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live UI Example Badge with Asset 4 -->
+          <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 p-4">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Built with our framework</span>
+            <div class="relative group overflow-hidden rounded-lg">
+              <img src="https://xmg.xstreamflex.com/i/9aYeNn" alt="northlinempl1.JPG" class="rounded-lg shadow-md w-full object-cover max-h-[160px] group-hover:scale-105 transition-transform duration-300" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                <span class="text-xs text-white font-medium">Northline Excavating — Multi-page Local Demo</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Clean Form Card -->
+        <div class="lg:col-span-7">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 md:p-8 shadow-sm">
+            <div class="mb-6">
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white">Request Your Preview</h2>
+              <p class="text-sm text-slate-500 mt-1">No phone calls scheduled unless requested. Completely asynchronous development.</p>
+            </div>
+
+            <!-- Simulation wrapper for JS success display -->
+            <div id="form-container">
+              <form id="contact-preview-form" class="space-y-6">
+                
+                <!-- Personal Info Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Your Name *</label>
+                    <input type="text" id="name" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="John Doe">
+                  </div>
+                  <div>
+                    <label for="business-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Business Name *</label>
+                    <input type="text" id="business-name" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="e.g. Northline Plumbing">
+                  </div>
+                </div>
+
+                <!-- Contact & Location Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div class="sm:col-span-1">
+                    <label for="city" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">City / Service Area *</label>
+                    <input type="text" id="city" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="e.g. Austin, TX">
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Phone Number *</label>
+                    <input type="tel" id="phone" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="(555) 000-0000">
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">Email Address *</label>
+                    <input type="email" id="email" required class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="you@address.com">
+                  </div>
+                </div>
+
+                <!-- Link Field -->
+                <div>
+                  <div class="flex justify-between items-center mb-1">
+                    <label for="website-link" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">Current Site or Google Listing</label>
+                    <span class="text-[10px] text-slate-400 uppercase">Optional</span>
+                  </div>
+                  <input type="url" id="website-link" class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="https://google.com/maps/place/... or current domain">
+                  <p class="text-[11px] text-slate-400 mt-1.5">Helps me pull current logos, imagery, and copywriting directly without asking you to upload files.</p>
+                </div>
+
+                <!-- Dropdown -->
+                <div>
+                  <label for="package-need" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1">What do you need?</label>
+                  <select id="package-need" class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all">
+                    <option value="preview">Preview Only (No package chosen yet)</option>
+                    <option value="site">Site Only ($897 setup + $50/mo)</option>
+                    <option value="site-chat">Site + Chat ($1,097 setup + $75/mo)</option>
+                    <option value="not-sure" selected>Not Sure yet</option>
+                  </select>
+                </div>
+
+                <!-- Message field -->
+                <div>
+                  <div class="flex justify-between items-center mb-1">
+                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">Short Message or Special Requests</label>
+                    <span class="text-[10px] text-slate-400 uppercase">Optional</span>
+                  </div>
+                  <textarea id="message" rows="4" class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all" placeholder="Any specific requirements, primary color preference, or custom services you want prominently displayed?"></option></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                  <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-brand-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950 transition-all">
+                    <span>Submit & Start My Free Preview</span>
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                  <p class="text-center text-[11px] text-slate-400 dark:text-slate-500 mt-3">
+                    By submitting, you agree that we may look up public listings under your business name. We do not sell or share lists.
+                  </p>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- Success State (Hidden initially) -->
+            <div id="form-success-container" class="hidden text-center py-12 px-4">
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 mb-4">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Request Received Successfully!</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-md mx-auto">
+                Thanks for trusting Xstream Flex. I will review your public details and start organizing your site mockups tonight. You will receive an email from <span class="font-semibold text-slate-800 dark:text-slate-200">contact@xstreamflex.com</span> in the next 24 to 48 hours.
+              </p>
+              <div class="mt-6 flex justify-center gap-4">
+                <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">
+                  <span>Return to Home Base</span>
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="examples.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:underline">
+                  <span>Browse live demos</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive FAQ Section specifically to eliminate request friction -->
+    <section class="py-16 bg-white dark:bg-slate-900 border-t border-b border-slate-150 dark:border-slate-800">
+      <div class="mx-auto max-w-4xl px-4 lg:px-8">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white text-center mb-8">Common Preview Questions</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Is there really no upfront cost?</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              Yes. I believe local business owners should see what they are buying before paying a single dollar. If you don't like the draft, you walk away with zero friction.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Do you keep my site offline during design?</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              Yes, your preview is hosted on a private staging subdomain only visible to you. Your existing website (if you have one) is completely untouched.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">What do you need from me?</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              Just your approval. I handle matching color schemes, formatting layouts, drafting copy, and optimizing text sizes so it performs well on mobile layout viewports.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Do you offer booking systems or stores?</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              We build clean multipage brochure layouts optimized for inbound calls and direct messages. We don't support full shopping carts or automated, intricate booking platforms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Portfolio Showcase with Asset 5 & Asset 6 -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-950">
+      <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Our Aesthetic standard</h2>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Clean layouts built for immediate client communication</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="space-y-3">
+            <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+              <img src="https://xmg.xstreamflex.com/i/LNyG00" alt="northlineempl3.JPG" class="w-full object-cover max-h-[220px]" />
+            </div>
+            <div class="flex justify-between items-center px-1">
+              <span class="text-xs font-bold text-slate-900 dark:text-slate-200">Mobile & Tablet Responsive Layouts</span>
+              <span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 dark:bg-brand-950/50 px-2 py-0.5 rounded">Optimized UI</span>
+            </div>
+          </div>
+          
+          <div class="space-y-3">
+            <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+              <img src="https://xmg.xstreamflex.com/i/ZzhpnN" alt="northlinempl1.JPG" class="w-full object-cover max-h-[220px]" />
+            </div>
+            <div class="flex justify-between items-center px-1">
+              <span class="text-xs font-bold text-slate-900 dark:text-slate-200">Clean Forms & Clear Lead Collection</span>
+              <span class="text-[10px] uppercase font-bold text-brand-600 bg-brand-50 dark:bg-brand-950/50 px-2 py-0.5 rounded">Conversion Focused</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- LIGHT/DARK THEME IMPLEMENTATION & INTERACTIVE MENU SCRIPTS -->
+  <script>
+    // Theme logic toggle
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    const htmlElement = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    function initTheme() {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        applyTheme(storedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyDark = htmlElement.classList.contains('dark');
+      applyTheme(isCurrentlyDark ? 'light' : 'dark');
+    });
+
+    themeToggleBtnMobile.addEventListener('click', () => {
+      const isCurrentlyDark = htmlElement.classList.contains('dark');
+      applyTheme(isCurrentlyDark ? 'light' : 'dark');
+    });
+
+    // Mobile Menu Navigation Drawer Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Contact Form Submission (Interactivity Override for Client UX)
+    const contactForm = document.getElementById('contact-preview-form');
+    const formContainer = document.getElementById('form-container');
+    const formSuccessContainer = document.getElementById('form-success-container');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Stop raw reload
+        
+        // Form Validation visual validation passes
+        // Simulate premium asynchronous submit state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span>Organizing Public Info...</span>
+        `;
+
+        setTimeout(() => {
+          // Fade container content to success screen smoothly
+          formContainer.classList.add('hidden');
+          formSuccessContainer.classList.remove('hidden');
+          
+          // Scroll cleanly to the card
+          formSuccessContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1800);
+      });
+    }
+
+    // Run initializations
+    initTheme();
+  </script>
+
+
+<footer class="bg-slate-900 text-slate-400 border-t border-slate-800 transition-colors duration-300">
+    <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      
+      <!-- Top footer block -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Brand brief -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ecOGtT" alt="Xstream Flex Favicon Badge" class="h-6 w-6 rounded" />
+            <span class="text-lg font-bold text-white">Xstream Flex</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            High-converting local business portals built with speed and optimized for real human conversations. Zero waste, direct developer support.
+          </p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Ecosystem</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home Base</a></li>
+            <li><a href="examples.html" class="hover:text-white transition-colors">Demos & Examples</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition-colors">Packages & Setup</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Resources</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="how-it-works.html" class="hover:text-white transition-colors">Our Detailed Process</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Local Marketing Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Developer</a></li>
+          </ul>
+        </div>
+
+        <!-- Small Contact Details & Real Person info -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-slate-200 mb-4">Direct Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Have a question or request before the preview?</p>
+          <a href="mailto:contact@xstreamflex.com" class="text-xs font-semibold text-white hover:underline">contact@xstreamflex.com</a>
+        </div>
+
+      </div>
+
+      <!-- Divider line -->
+      <hr class="border-slate-800 my-8" />
+
+      <!-- Bottom Credits and Stubs -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Xstream Flex. All rights reserved. Crafted by premium independent developers.</p>
+        
+        <div class="flex items-center gap-4">
+          <a href="privacy.html" class="hover:underline hover:text-slate-350">Privacy Policy</a>
+          <span>·</span>
+          <a href="terms.html" class="hover:underline hover:text-slate-350">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial system/localstorage check
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        mobileMenuBtn.setAttribute('aria-expanded', !expanded);
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
